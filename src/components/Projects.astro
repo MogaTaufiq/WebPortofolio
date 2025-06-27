@@ -1,0 +1,90 @@
+---
+// src/components/Projects.astro
+
+const projects = [
+  {
+    title: "Neopark - Smart Parking System",
+    description: "Prototipe fungsional sistem parkir pintar berbasis AIoT untuk memberikan informasi ketersediaan slot parkir secara real-time.",
+    image: "https://placehold.co/600x400/1a202c/4a5568?text=Neopark",
+    technologies: [
+      { name: "YOLOv8", color: "blue" },
+      { name: "Python", color: "green" },
+      { name: "Docker", color: "gray" },
+      { name: "CI/CD", color: "orange" }
+    ]
+  },
+  {
+    title: "AlbertopicAI - Scientific Analysis",
+    description: "Aplikasi web end-to-end untuk analisis tematik dari literatur ilmiah menggunakan model BERTopic dan MLOps.",
+    image: "https://placehold.co/600x400/1a202c/4a5568?text=AlbertopicAI",
+    technologies: [
+      { name: "NLP", color: "purple" },
+      { name: "FastAPI", color: "red" },
+      { name: "MLflow", color: "indigo" },
+      { name: "Docker", color: "gray" }
+    ]
+  },
+  {
+    title: "Diversify - Social Inclusion App",
+    description: "Aplikasi inovatif untuk meningkatkan inklusi sosial dan akses ke pasar kerja bagi individu penyandang disabilitas.",
+    image: "https://placehold.co/600x400/1a202c/4a5568?text=Diversify",
+    technologies: [
+      { name: "UI/UX Design", color: "teal" },
+      { name: "Social Impact", color: "pink" },
+      { name: "SDGs", color: "yellow" }
+    ]
+  }
+];
+
+const getTechColor = (color: string) => {
+  const colors = {
+    blue: "bg-blue-900/50 text-blue-300",
+    green: "bg-green-900/50 text-green-300",
+    gray: "bg-gray-700 text-gray-300",
+    orange: "bg-orange-900/50 text-orange-300",
+    purple: "bg-purple-900/50 text-purple-300",
+    red: "bg-red-900/50 text-red-300",
+    indigo: "bg-indigo-900/50 text-indigo-300",
+    teal: "bg-teal-900/50 text-teal-300",
+    pink: "bg-pink-900/50 text-pink-300",
+    yellow: "bg-yellow-900/50 text-yellow-300"
+  };
+  return colors[color as keyof typeof colors] || "bg-gray-700 text-gray-300";
+};
+---
+
+<section id="projects" class="min-h-screen flex items-center">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white">Proyek Unggulan</h2>
+      <p class="mt-4 max-w-2xl mx-auto text-gray-400">
+        Beberapa studi kasus di mana saya mengubah ide menjadi solusi nyata melalui teknologi.
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => (
+        <div class="bg-slate-800/50 rounded-lg overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300 group">
+          <img 
+            src={project.image}
+            alt={`[Gambar Proyek ${project.title}]`}
+            class="w-full h-48 object-cover"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/1a202c/4a5568?text=Image+Not+Found';"
+          />
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-white mb-2">{project.title}</h3>
+            <p class="text-gray-400 text-sm mb-4">{project.description}</p>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech) => (
+                <span class={`text-xs px-2 py-1 rounded-full ${getTechColor(tech.color)}`}>
+                  {tech.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
