@@ -1,11 +1,15 @@
 ---
 // src/components/Projects.astro
+import diversify from '../assets/Diversify.svg';
+import neopark from '../assets/Neopark1.jpg';
+import albert from '../assets/Albert.png';
+
 
 const projects = [
   {
     title: "Neopark - Smart Parking System",
     description: "Prototipe fungsional sistem parkir pintar berbasis AIoT untuk memberikan informasi ketersediaan slot parkir secara real-time.",
-    image: "https://placehold.co/600x400/1a202c/4a5568?text=Neopark",
+    image: neopark.src,
     technologies: [
       { name: "YOLOv8", color: "blue" },
       { name: "Python", color: "green" },
@@ -16,7 +20,7 @@ const projects = [
   {
     title: "AlbertopicAI - Scientific Analysis",
     description: "Aplikasi web end-to-end untuk analisis tematik dari literatur ilmiah menggunakan model BERTopic dan MLOps.",
-    image: "https://placehold.co/600x400/1a202c/4a5568?text=AlbertopicAI",
+    image: albert.src,
     technologies: [
       { name: "NLP", color: "purple" },
       { name: "FastAPI", color: "red" },
@@ -27,7 +31,9 @@ const projects = [
   {
     title: "Diversify - Social Inclusion App",
     description: "Aplikasi inovatif untuk meningkatkan inklusi sosial dan akses ke pasar kerja bagi individu penyandang disabilitas.",
-    image: "https://placehold.co/600x400/1a202c/4a5568?text=Diversify",
+    // --- PERUBAHAN DI SINI ---
+    // Menghapus tanda kutip agar menjadi variabel, bukan string
+    image: diversify.src,
     technologies: [
       { name: "UI/UX Design", color: "teal" },
       { name: "Social Impact", color: "pink" },
