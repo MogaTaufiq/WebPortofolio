@@ -2,8 +2,11 @@
 // src/components/About.astro
 ---
 
-<section id="about" class="min-h-screen flex items-center bg-slate-900/70">
-  <div class="container mx-auto px-6">
+{/* Bagian section diubah untuk menjadi container bagi Vanta.js */}
+<section id="about" class="relative min-h-screen flex items-center overflow-hidden">
+  
+  {/* Konten diletakkan di atas Vanta.js menggunakan z-index */}
+  <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-12">
       <h2 class="text-3xl lg:text-4xl font-bold text-white">
         Menghubungkan <span class="text-blue-400">Inovasi AI</span> dengan Kebutuhan Manusia
@@ -13,12 +16,37 @@
       </p>
     </div>
     
-    <div class="max-w-4xl mx-auto bg-gray-800/50 rounded-lg p-8 shadow-lg">
+    <div class="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm rounded-lg p-8 shadow-lg border border-slate-700/50">
       <p class="text-gray-300 leading-relaxed text-justify">
-        Perjalanan teknis saya terfokus pada pembuatan solusi end-to-end. Dalam proyek seperti <strong>"Neopark"</strong>, saya merekayasa sistem parkir pintar yang mengintegrasikan AI, IoT, dan backend, lengkap dengan pipeline CI/CD. Melalui <strong>"AlbertopicAI"</strong>, saya memimpin pengembangan aplikasi web dari hulu ke hilir, mulai dari data pipeline, melatih model NLP, hingga mendeploynya sebagai layanan interaktif.
+        Perjalanan teknis saya berfokus pada pengembangan solusi end-to-end. Dalam proyek seperti <strong>Neopark</strong>, saya merancang sistem parkir pintar berbasis AI dan IoT, lengkap dengan integrasi backend serta pipeline CI/CD. Di <strong>AlbertopicAI</strong>, saya memimpin pengembangan aplikasi web dari hulu ke hilir—mulai dari data pipeline, pelatihan model NLP, hingga deployment sebagai layanan interaktif.
         <br><br>
-        Namun, bagi saya, teknologi lebih dari sekadar kode; ia adalah alat untuk menciptakan dampak. Semangat ini saya tuangkan dalam proyek-proyek seperti <strong>"Neuropals"</strong> untuk membantu anak berkebutuhan khusus, dan <strong>"Diversify"</strong> untuk meningkatkan inklusi sosial bagi penyandang disabilitas. Proyek-proyek ini mencerminkan komitmen saya untuk membangun teknologi yang tidak hanya cerdas, tetapi juga bermakna dan inklusif.
+        Namun bagi saya, teknologi bukan sekadar baris kode—ia adalah medium untuk menciptakan dampak. Semangat ini saya tuangkan dalam proyek seperti <strong>Neuropals</strong>, yang dirancang untuk membantu anak-anak berkebutuhan khusus, serta <strong>Diversify</strong>, yang mendorong inklusi sosial bagi penyandang disabilitas. Proyek-proyek ini mencerminkan komitmen saya untuk membangun teknologi yang tidak hanya cerdas, tetapi juga bermakna dan manusiawi.
       </p>
     </div>
   </div>
 </section>
+
+{/* Memuat library yang dibutuhkan oleh Vanta.js */}
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.net.min.js"></script>
+
+{/* Skrip untuk menginisialisasi Vanta.js pada section 'about' */}
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    VANTA.NET({
+      el: "#about", // Menargetkan elemen dengan id="about"
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x3f6cff, // Warna biru dari tema Anda
+      backgroundColor: 0x0d1117, // Warna background dari tema Anda
+      points: 11.00,
+      spacing: 17.00,
+      maxDistance: 25.00
+    })
+  });
+</script>
